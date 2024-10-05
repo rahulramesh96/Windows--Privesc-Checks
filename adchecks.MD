@@ -170,4 +170,4 @@ Here we can see that the associated executable is specified through the **BINARY
 Services have a Discretionary Access Control List (DACL), which indicates who has permission to start, stop, pause, query status, query configuration, or reconfigure the service, amongst other privileges. The DACL can be seen from Process Hacker (available on your machine's desktop):
 
 
-(./d8244cfd9d64a7be30f5fb0308fd0806.png)
+![Alt text](./d8244cfd9d64a7be30f5fb0308fd0806.png)
