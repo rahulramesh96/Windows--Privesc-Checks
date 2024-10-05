@@ -171,3 +171,7 @@ Services have a Discretionary Access Control List (DACL), which indicates who ha
 
 
 ![Alt text](./d8244cfd9d64a7be30f5fb0308fd0806.png)
+
+All of the services configurations are stored on the registry under `HKLM\SYSTEM\CurrentControlSet\Services\`:
+
+
