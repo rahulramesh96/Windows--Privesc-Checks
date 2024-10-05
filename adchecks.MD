@@ -135,8 +135,8 @@ As this is a reverse shell, you should also run the Metasploit Handler module co
 Command Prompt
 `C:\> msiexec /quiet /qn /i C:\Windows\Temp\malicious.msi`
 
-# Abusing Service Misconfigurations
-## Windows Services
+# 3. Abusing Service Misconfigurations
+## a. Windows Services
 
 Windows services are managed by the **Service Control Manager (SCM)**. The SCM is a process in charge of managing the state of services as needed, checking the current status of any given service and generally providing a way to configure services.
 
@@ -179,7 +179,7 @@ All of the services configurations are stored on the registry under `HKLM\SYSTEM
 A subkey exists for every service in the system. Again, we can see the associated executable on the **ImagePath** value and the account used to start the service on the **ObjectName** value. If a DACL has been configured for the service, it will be stored in a subkey called **Security**. As you have guessed by now, only administrators can modify such registry entries by default.
 
 
-## Insecure Permissions on Service Executable
+## b. Insecure Permissions on Service Executable
 
 If the executable associated with a service has weak permissions that allow an attacker to modify or replace it, the attacker can gain the privileges of the service's account trivially.
 
@@ -281,7 +281,7 @@ C:\Windows\system32>whoami
 wprivesc1\svcusr1
 ```
 
-## Unquoted Service Paths
+## c. Unquoted Service Paths
 
 When we can't directly write into service executables as before, there might still be a chance to force a service into running arbitrary executables by using a rather obscure feature.
 
@@ -401,7 +401,7 @@ C:\Windows\system32>whoami
 wprivesc1\svcusr2
 ```
 
-## Insecure Service Permissions
+## d. Insecure Service Permissions
         
 You might still have a slight chance of taking advantage of a service if the service's executable DACL is well configured, and the service's binary path is rightly quoted. Should the service DACL (not the service's executable DACL) allow you to modify the configuration of a service, you will be able to reconfigure the service. This will allow you to point to any executable you need and run it with any account you prefer, including SYSTEM itself.
 
